@@ -13,6 +13,8 @@ services:
       - "8545:8545"
       - "8546:8546"
     restart: unless-stopped
+    volumes:
+      - geth1-data:/root
 
   geth2:
     image: geth-node2:stable
@@ -25,6 +27,8 @@ services:
       - "8555:8545"
       - "8556:8546"
     restart: unless-stopped
+    volumes:
+      - geth1-data:/root
 
   geth3:
     image: geth-node3:stable
@@ -37,3 +41,10 @@ services:
       - "8565:8545"
       - "8566:8546"
     restart: unless-stopped
+    volumes:
+      - geth1-data:/root
+
+volumes:
+  geth1-data:
+  geth2-data:
+  geth3-data:
