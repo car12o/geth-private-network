@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+
+  geth1:
+    image: geth-node1:stable
+    build:
+      context: .
+      args:
+        - CONFIG_PATH=node1
+    container_name: geth-node1
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    restart: unless-stopped
+
+  geth2:
+    image: geth-node2:stable
+    build:
+      context: .
+      args:
+        - CONFIG_PATH=node2
+    container_name: geth-node2
+    ports:
+      - "8555:8545"
+      - "8556:8546"
+    restart: unless-stopped
+
+  geth3:
+    image: geth-node3:stable
+    build:
+      context: .
+      args:
+        - CONFIG_PATH=node3
+    container_name: geth-node3
+    ports:
+      - "8565:8545"
+      - "8566:8546"
+    restart: unless-stopped
